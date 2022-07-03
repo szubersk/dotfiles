@@ -31,16 +31,17 @@ bindkey '\e[3~' delete-char
 
 umask 0022
 
-export EDITOR=/usr/bin/vim
+export EDITOR=vim
+export PAGER='less -R'
 export HISTFILE=~/.zsh_history
 export HISTSIZE=100000
 export PATH="/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:$HOME/bin:$HOME/.local/bin"
 export PYTHONDONTWRITEBYTECODE=1
 export SAVEHIST=100000
 
-if [ "$XDG_SESSION_TYPE" = x11 ]; then
+if [[ $XDG_SESSION_TYPE = x11 ]]; then
   xset b off
-  xset r rate 150 120
+  xset r rate 150 150
 fi
 
 # general aliases

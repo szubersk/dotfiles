@@ -1,3 +1,3 @@
 xset b off &
-xset r rate 200 80 &
+xset r rate 150 150 &
 #exec openbsd-cwm

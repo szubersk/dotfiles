@@ -1,6 +1,7 @@
 [user]
   email = szuberskidamian@gmail.com
   name = szubersk
+  signingkey = 5BA2439DCA1ABF18
 [init]
   defaultBranch = master
 [advice]
@@ -17,7 +18,6 @@
   ui = auto
 [http]
   version = HTTP/2
-  sslVerify = false
 [protocol]
   version = 2
 [gc]
