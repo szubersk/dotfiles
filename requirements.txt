@@ -3,6 +3,7 @@ ansible
 ansible-lint
 autopep8
 black
+boto3
 flake8
 pss
 pylint

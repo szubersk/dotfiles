@@ -41,7 +41,7 @@ export SAVEHIST=100000
 
 if [[ $XDG_SESSION_TYPE = x11 ]]; then
   xset b off
-  xset r rate 150 150
+  xset r rate 150 100
 fi
 
 # general aliases

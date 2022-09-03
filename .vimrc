@@ -29,7 +29,7 @@ set omnifunc=syntaxcomplete#Complete
 
 packloadall
 
-let g:ale_fixers = {'json': ['jq'], 'python': ['autopep8'], 'sh': ['shfmt'], 'yaml': ['yamlfix']}
+let g:ale_fixers = {'json': ['jq'], 'python': ['autopep8', 'black'], 'sh': ['shfmt'], 'yaml': ['yamlfix']}
 
 let g:ale_python_flake8_options = '--max-line-length 88'
 let g:ale_python_pylint_options = '--confidence=HIGH --disable=C'
@@ -47,6 +47,7 @@ autocmd BufRead,BufNewFile *.py set shiftwidth=4 softtabstop=4 tabstop=4
 
 augroup templates
   autocmd BufNewFile *.sh 0r ~/.vim/templates/bash
+  autocmd BufNewFile *.py 0r ~/.vim/templates/python3
 augroup END
 
 vnoremap < <gv
