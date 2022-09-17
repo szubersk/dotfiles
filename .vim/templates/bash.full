@@ -1,0 +1,33 @@
+#!/bin/bash
+
+set -euo pipefail
+
+[[ ${V:-} != 1 ]] || set -x
+
+SCRIPT_DIR=$(readlink -e "$(dirname "${BASH_SOURCE[0]}")")
+
+install_signal_handlers() {
+  for sig in ABRT HUP INT PIPE QUIT TERM; do
+    trap 'cleanup "$?"; trap - '"$sig"' && kill -s '"$sig"' $$' "$sig"
+  done
+
+  # shellcheck disable=SC2154
+  trap 'ec=$?; cleanup "$ec"; exit "$ec"' EXIT
+}
+
+disable_signal_handlers() {
+  trap '' ABRT HUP INT PIPE QUIT TERM EXIT
+}
+
+cleanup() {
+  set +e
+  disable_signal_handlers
+}
+
+main() {
+  install_signal_handlers
+
+  echo OK
+}
+
+main "$@"

@@ -7,8 +7,7 @@ zstyle ':completion:*' menu select
 autoload -Uz compinit && compinit
 complete -C "$HOME/.local/bin/aws_completer" aws
 
-autoload -Uz promptinit && promptinit
-prompt oliver boldblue
+source /usr/share/powerline/bindings/zsh/powerline.zsh
 
 autoload -Uz colors && colors
 eval "$(dircolors -b)"
@@ -44,15 +43,15 @@ if [[ $XDG_SESSION_TYPE = x11 ]]; then
   xset r rate 150 100
 fi
 
-# general aliases
-alias g='git'
+# general
 alias bc='bc -l'
 alias egrep='egrep --color=auto --binary-files=without-match --exclude-dir=.svn --exclude-dir=.git'
 alias grep='grep --color=auto --binary-files=without-match --exclude-dir=.svn --exclude-dir=.git'
 alias ls='ls -F --color=auto'
-alias os='openstack'
-alias sshvm='ssh -t vm'
+alias pbcopy='xclip -selection clipboard -i'
+alias pbpaste='xclip -selection clipboard -o'
 
+# git
 alias ga='git add'
 alias gb='git branch -vv'
 alias gci='git commit'
@@ -69,7 +68,9 @@ alias gri='git rebase -i'
 alias gs='git status -sb'
 alias gst='git status'
 
+# sca
 alias sc='shellcheck --format=gcc --enable=all --exclude=SC1090,SC1091,SC2250,SC3043'
 alias sf='shfmt -i 2 -bn -ci'
 
+# terraform
 alias tf='terraform'
