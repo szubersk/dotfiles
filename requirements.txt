@@ -1,7 +1,6 @@
 Jinja2
-ansible
-ansible-lint
-autopep8
+#ansible
+#ansible-lint
 black
 boto3
 flake8

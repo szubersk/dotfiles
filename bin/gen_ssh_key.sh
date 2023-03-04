@@ -1,12 +1,7 @@
 #!/bin/bash
 
-keyfile=$HOME/.ssh/keys/$1
+file=$(mktemp -u -t ed25519.XXX)
+ssh-keygen -q -C '' -N '' -t ed25519 -f "$file"
 
-if [[ -e $keyfile ]]; then
-  echo >&2 "key '$keyfile' already exists!"
-  exit 1
-fi
-
-password=$(uuidgen -r)
-ssh-keygen -N "$password" -f "$keyfile" -t ed25519 -C "$1"
-echo "private key password: $password"
+printf "private key:\n%s\n\npublic key:\n" "$file"
+cat "$file.pub"

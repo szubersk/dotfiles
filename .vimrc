@@ -39,11 +39,11 @@ set laststatus=2
 " ALE
 let g:ale_fixers = {'json': ['jq'], 'python': ['autopep8', 'black'], 'sh': ['shfmt'], 'yaml': ['yamlfix']}
 
-let g:ale_python_flake8_options = '--max-line-length 88'
+let g:ale_python_flake8_options = '--ignore E501'
 let g:ale_python_pylint_options = '--confidence=HIGH --disable=C'
 let g:ale_sh_shell_default_shell = 'bash'
 let g:ale_sh_shellcheck_options = '--format=gcc --enable=all --exclude=SC1090,SC1091,SC2250,SC2312,SC3043'
-let g:ale_sh_shfmt_options = '-i 2 -bn -ci'
+let g:ale_sh_shfmt_options = '-i 2 -ci -s'
 
 " netrw
 let g:netrw_banner=0
